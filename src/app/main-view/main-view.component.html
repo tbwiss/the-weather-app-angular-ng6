@@ -8,17 +8,18 @@
       <button mat-button (click)="searchForLocation()">Search</button>
       <button mat-button>Add location</button>
     </mat-card-actions>
-  <mat-card-footer><p>Uses the <a href="https://www.metaweather.com/api/" target="_blank">MetaWeather.com</a> API. Thanks a lot!</p></mat-card-footer>
+  <mat-card-footer><p class="info-text">Uses the <a href="https://www.metaweather.com/api/" target="_blank">MetaWeather.com</a> API. Thanks a lot!</p></mat-card-footer>
 </mat-card>
 
 
 <mat-divider class="divider"></mat-divider>
 
 
-<mat-card *ngIf="weatherData.id !== undefined">
+<mat-card *ngIf="weatherData.id !== undefined" class="location-card">
   <mat-card-title>{{weatherData.title}}</mat-card-title>
   <mat-card-subtitle>{{weatherData.weatherStateName}}</mat-card-subtitle>
-  <mat-card-content>
+  <img mat-card-image src={{weatherData.iconSrc}} class="weather-img" alt="weather icon">
+  <mat-card-content class="content-main">
     Temp: {{weatherData.temp}} <br />
     Date: {{weatherData.date}} <br />
     Humidity: {{weatherData.humidity}}  <br />

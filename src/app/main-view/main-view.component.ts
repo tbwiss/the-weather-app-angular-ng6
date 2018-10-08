@@ -25,6 +25,7 @@ export class MainViewComponent implements OnInit {
         title: data.title,
         weatherStateName: today.weather_state_name,
         weatherStateAbbr: today.weather_state_abbr,
+        iconSrc: `/assets/icons/${today.weather_state_abbr}.svg`,
         date: today.applicable_date,
         temp: today.the_temp,
         humidity: today.humidity,

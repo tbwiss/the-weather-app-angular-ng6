@@ -13,6 +13,7 @@ export interface Weather {
   title: string;
   weatherStateName: string;
   weatherStateAbbr: string;
+  iconSrc: string;
   date: string;
   temp: number;
   humidity: number;
