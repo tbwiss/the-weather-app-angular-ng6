@@ -33,7 +33,7 @@ export class WeatherAPIService {
     return this.http.get(`${this.baseUrl}search/?query=${query}`);
   }
 
-  getLocationsWeather(locationWoeid: string) {
+  getLocationWeather(locationWoeid: string) {
     return this.http.get(this.baseUrl + locationWoeid);
   }
 
