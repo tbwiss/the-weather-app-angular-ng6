@@ -1,18 +1,35 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MainViewComponent } from './main-view/main-view.component';
+
+import { MatCardModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatDividerModule } from '@angular/material/divider';
+
+import { WeatherAPIService } from './services/weather-api.service';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainViewComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatDividerModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [WeatherAPIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
