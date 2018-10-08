@@ -10,6 +10,7 @@ export interface Location {
 
 export interface Weather {
   id: number;
+  title: string;
   weatherStateName: string;
   weatherStateAbbr: string;
   date: string;

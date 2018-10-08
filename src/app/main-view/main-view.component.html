@@ -2,32 +2,30 @@
   <mat-card-title>The weather app</mat-card-title>
   <mat-card-subtitle>The first one the world has ever seen</mat-card-subtitle>
   <mat-card-content>
-    <input matInput placeholder="Search for a location" value="">
+    <input matInput placeholder="Search for a location" [(ngModel)]="searchTerm">
   </mat-card-content>
   <mat-card-actions>
-      <button mat-button>Search</button>
+      <button mat-button (click)="searchForLocation()">Search</button>
       <button mat-button>Add location</button>
     </mat-card-actions>
   <mat-card-footer><p>Uses the <a href="https://www.metaweather.com/api/" target="_blank">MetaWeather.com</a> API. Thanks a lot!</p></mat-card-footer>
 </mat-card>
 
 
-<mat-divider></mat-divider>
+<mat-divider class="divider"></mat-divider>
 
 
-<mat-card>
-    <mat-card-title>LocationName</mat-card-title>
-    <mat-card-subtitle>The first one the world has ever seen</mat-card-subtitle>
-    <mat-card-content>
-      weather_state
-      temp
-      wind
-      air
-      humidity
-      visiblity
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-button>Share</button>
-        <button mat-button>Comment</button>
-    </mat-card-actions>
-  </mat-card>
+<mat-card *ngIf="weatherData.id !== undefined">
+  <mat-card-title>{{weatherData.title}}</mat-card-title>
+  <mat-card-subtitle>{{weatherData.weatherStateName}}</mat-card-subtitle>
+  <mat-card-content>
+    Temp: {{weatherData.temp}} <br />
+    Date: {{weatherData.date}} <br />
+    Humidity: {{weatherData.humidity}}  <br />
+    Predictability: {{weatherData.predictability}} <br />
+  </mat-card-content>
+  <mat-card-actions>
+      <button mat-button>Share</button>
+      <button mat-button>Comment</button>
+  </mat-card-actions>
+</mat-card>

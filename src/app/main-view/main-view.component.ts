@@ -11,6 +11,7 @@ import * as moment from 'moment';
 export class MainViewComponent implements OnInit {
 
   private weatherData: Weather;
+  private searchTerm: string;
 
   constructor(private weatherApi: WeatherAPIService) { }
 
@@ -21,6 +22,7 @@ export class MainViewComponent implements OnInit {
 
       this.weatherData = {
         id: today.id,
+        title: data.title,
         weatherStateName: today.weather_state_name,
         weatherStateAbbr: today.weather_state_abbr,
         date: today.applicable_date,
@@ -30,5 +32,13 @@ export class MainViewComponent implements OnInit {
       };
       console.log(this.weatherData);
     });
+  }
+
+  searchForLocation() {
+    if (this.searchTerm.length > 1) {
+      this.weatherApi.searchLocation(this.searchTerm).subscribe((data: any) => {
+        console.log(data);
+      });
+    }
   }
 }
